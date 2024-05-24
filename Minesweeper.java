@@ -16,7 +16,7 @@ public class Minesweeper {
 			this.c = c;
 		}
 	}
-	
+//-------------------------------------------------------------------------------//
 	//gui
 	int tileSize = 70;
 	int numRows = 8;
@@ -41,6 +41,7 @@ public class Minesweeper {
 	Random random = new Random();
 	
 		Minesweeper(){
+//-------------------------------------------------------------------------------//
 			//8buttons by 8 buttons
 			//Gui implementations		
 			  frame.setSize(boardWidth, boardHeight);
@@ -59,7 +60,7 @@ public class Minesweeper {
 			  boardPanel.setLayout(new GridLayout(numRows,numCols));
 			  frame.add(boardPanel);
 			  
-			  		
+//-------------------------------------------------------------------------------//			  		
 			//check for rows
 			for (int r = 0; r<numRows; r++) {
 				//check for columns
@@ -104,31 +105,25 @@ public class Minesweeper {
 								else if(tile.getText()=="🚩") {
 									tile.setText("");
 								}
-								
 							}
 						}
 					});
 					boardPanel.add(tile);
 				}
-			}
-
-			
+			}	
 			  frame.setVisible(true);
-			  setMines();
-			
+			  setMines();		
 		}
 		
+//-------------------------------------------------------------------------------//
 		//mines implementations
 		void setMines() {
 			//idk why theres an error
 		mineList = new ArrayList<MineTile>();
-
 			int mineLeft = mineCount;
-			while(mineLeft > 0) {
-				
+			while(mineLeft > 0) {				
 				int r = random.nextInt(numRows);//random number from 0-7
 				int c = random.nextInt(numCols);//random number from 0-7
-				
 				MineTile tile = board[r][c];
 				//check if minelist already has this tile
 				if(!mineList.contains(tile)) {
@@ -139,6 +134,7 @@ public class Minesweeper {
 			}
 		}
 		
+//-------------------------------------------------------------------------------//	
 		void revealMines() {
 			//iterate through the array list with mines in them
 			for(int i = 0; i<mineList.size(); i++) {
@@ -149,6 +145,7 @@ public class Minesweeper {
 			textLabel.setText("GAME OVER");
 		}
 		
+//-------------------------------------------------------------------------------//	
 		void checkMine(int r, int c){
 			//base case check if the rows and columns are in the bounderies
 			if(r<0 || r>= numRows || c<0 || c>= numCols) {
@@ -209,6 +206,7 @@ public class Minesweeper {
 			}
 		}
 		
+//-------------------------------------------------------------------------------//	
 		//coutns mines
 		int countMine(int r, int c) {
 			//out bounds, you contain a mine or you dont 
@@ -223,7 +221,7 @@ public class Minesweeper {
 				return 0;
 			}
 		}
-	
+//-------------------------------------------------------------------------------//
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Minesweeper minesweeper = new Minesweeper();
